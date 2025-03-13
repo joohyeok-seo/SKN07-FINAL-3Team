@@ -1,0 +1,135 @@
+/* 폰트적용 */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@media (max-width: 767px) {
+    .fIuCuA {
+        padding: 28px 20px 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .fBVXAe {
+        gap: 40px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .chIAuO {
+        padding-bottom: 12px;
+        flex-direction: column;
+    }
+}
+
+a {
+    color: currentcolor;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+.footer-title {
+    font-size: 15px;
+    color: rgb(34, 34, 34);
+    font-weight: 600;
+}
+
+.footer {
+    background-color: rgb(250, 250, 250);
+    color: #333;
+    font-size: 14px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.footer-detail {
+    color: rgb(140, 140, 140);
+    white-space: pre-wrap;
+    font-size: 13px;
+    line-height: 19.5px;
+}
+
+.fIuCuA {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0px 0px 20px 20px;
+    background-color: rgb(250, 250, 250);
+    overflow-wrap: break-word;
+    padding: 28px 40px 60px;
+}
+
+.fPfYCN {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.lllkzY {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    gap: 28px;
+    align-items: flex-start;
+    justify-content: center;
+    flex: unset;
+    width: initial;
+}
+
+.fBVXAe {
+    gap: 12px;
+}
+
+.lllkzY * {
+    box-sizing: border-box;
+}
+
+.fVVdRJ * {
+    box-sizing: border-box;
+}
+
+.chIAuO {
+    display: flex;
+    list-style: none;
+    gap: 8px 20px;
+    align-items: unset;
+}
+
+.chIAuO span.bold, .chIAuO a.bold {
+    color: rgb(89, 89, 89);
+    font-weight: 600;
+}
+
+.chIAuO span, .chIAuO a {
+    color: rgb(140, 140, 140);
+    font-size: 13px;
+    line-height: 150%;
+}
+
+.chIAuO span, .chIAuO a {
+    color: rgb(140, 140, 140);
+    font-size: 13px;
+    line-height: 150%;
+}
+
+.jAyJWG {
+    margin-block: 0px;
+    margin-inline: 0px;
+    letter-spacing: normal;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: rgb(140, 140, 140);
+    text-align: inherit;
+    white-space: pre-line;
+    font-style: normal;
+    user-select: auto;
+    word-break: normal;
+}
+
