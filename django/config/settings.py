@@ -19,7 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 import environ
 ENV_DIR = Path(__file__).resolve().parent.parent.parent
-print(f'[Mylog] ENV_DIR: {ENV_DIR}')
+COUNT = 0
+if COUNT < 1:
+    print(f'[Mylog] ENV_DIR: {ENV_DIR}')
+    COUNT += 1
 env = environ.Env()
 environ.Env.read_env(
     env_file=os.path.join(ENV_DIR, '.env')
@@ -35,7 +38,8 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
-    'ii578293.iptime.org'
+    'ii578293.iptime.org',
+    '192.168.0.37'
 ]
 
 
@@ -48,6 +52,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+
+    'crispy_forms',
+    'markdownx',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.naver',
 
     'home',
     'blog'
@@ -61,9 +76,24 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Add the account middleware
+    'allauth.account.middleware.AccountMiddleware',
 
+]   
 
-]
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    # 'google': {
+    #     # For each OAuth based provider, either add a ``SocialApp``
+    #     # (``socialaccount`` app) containing the required client
+    #     # credentials, or list them here:
+    #     'APP': {
+    #         'client_id': '123',
+    #         'secret': '456',
+    #         'key': ''
+    #     }
+    # }
+}
 
 ROOT_URLCONF = 'config.urls'
 
@@ -80,10 +110,33 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # `allauth` needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+# allauth docs
+# https://docs.allauth.org/en/dev/installation/quickstart.html
+SITE_ID = 1
+
+# ACCOUNT_EMAIL_REQUIRED = True # deprecated
+ACCOUNT_SIGNUP_FIELDS = [
+
+]
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_REDIRECT_URL = '/blog/'
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -141,18 +194,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# 정적 파일들이 위치한 경로 설정 (개발 중)
+# 배포시 정적 파일들이 모일 위치 (배포 환경에서는 collectstatic 명령을 통해 이곳으로 파일들이 모여야 함)
+# 정적 파일들이 위치한 경로 설정 (개발 중)s
+STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # 'static' 폴더가 프로젝트 디렉토리에 있다는 가정
+    BASE_DIR / 'static',  # 'static' 폴더가 프로젝트 디렉토리에 있다는 가정
 ]
 
-# 배포시 정적 파일들이 모일 위치 (배포 환경에서는 collectstatic 명령을 통해 이곳으로 파일들이 모여야 함)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/_media/'
+MEDIA_ROOT = BASE_DIR / '_media'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
