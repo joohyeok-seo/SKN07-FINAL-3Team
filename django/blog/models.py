@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdown
 
 
 
@@ -7,7 +9,7 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField(max_length=50)
     hook_text = models.CharField(max_length=100, blank=True)
-    content = models.TextField()
+    content = MarkdownxField()
     summarize_content = models.CharField(max_length=1000, blank=True)
 
     head_image = models.ImageField(
@@ -24,8 +26,11 @@ class Post(models.Model):
     # category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
     # tags = models.ManyToManyField(Tag, blank=True)
     
-    def go2page(self):
+    def get_absolute_url(self):
         return f'/blog/{self.pk}/'
+    
+    def get_content_markdown(self):
+        return markdown(self.content)
 
     def __str__(self):
         return f'[{self.pk}] {self.title} :: {self.author}'
