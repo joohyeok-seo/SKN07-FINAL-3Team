@@ -1,7 +1,9 @@
+{% load socialaccount %}
+
 <header id="f3fbcbb5-8c97-4b2c-b929-df013653c3ef" language="[object Object]"
     menus="[object Object],[object Object],[object Object],[object Object],[object Object]" account="[object Object]"
     class="sc-cc615447-1 ljNrEX sc-6aeafcbc-0 LfzpA">
-    <div class="sc-df4c3229-0 rjbfd sc-cc615447-2 CoUIx"><a href="/home">
+    <div class="sc-df4c3229-0 rjbfd sc-cc615447-2 CoUIx"><a href="/">
             <div class="sc-cc615447-3 dscwMD"><img
                     src="https://opening-attachments.greetinghr.com/2024-09-26/c26cffc8-83f5-46d4-96e1-fc268b5556a8/NICEGROUP_Primary.png"
                     alt="logo"></div>
@@ -18,6 +20,11 @@
                             id="c6b18cb7-f128-4319-9ce6-289a719332b9" link="[object Object]" shape="square"
                             radius="[object Object]" submenus="" class="sc-cc615447-0 bQCaGa"><span
                                 class="sc-86b147bc-0 jYdwkH">ABOUT</span></button></a></div>
+                <div class="sc-70234ffb-0 faWboY"><a rel="noreferrer" href="/chat"><button name="chat"
+                            text="[object Object]" background="[object Object]" brandcolor="#002555"
+                            id="c6b18cb7-f128-4319-9ce6-289a719332b9" link="[object Object]" shape="square"
+                            radius="[object Object]" submenus="" class="sc-cc615447-0 bQCaGa"><span
+                                class="sc-86b147bc-0 jYdwkH">상담하기</span></button></a></div>
                 <div class="sc-70234ffb-0 faWboY"><a rel="noreferrer" href="/food"><button name="FOOD"
                             text="[object Object]" background="[object Object]" brandcolor="#002555"
                             id="4e0e12dc-9cd3-4e86-8998-9185a8b0ec31" link="[object Object]" shape="square"
@@ -25,16 +32,16 @@
                             submenus="[object Object],[object Object],[object Object],[object Object]"
                             class="sc-cc615447-0 cKCfzK"><span class="sc-86b147bc-0 jYdwkH">FOOD</span></button></a>
                 </div>
-                <div class="sc-70234ffb-0 faWboY"><a target="_blank" rel="noreferrer"
-                        href="/blog"><button name="푸드백과↗" text="[object Object]"
-                            background="[object Object]" brandcolor="#002555" id="1925bebf-4238-447c-8c6b-021a14d39c26"
-                            link="[object Object]" submenus="" shape="square" radius="[object Object]"
-                            class="sc-cc615447-0 cKCfzK"><span class="sc-86b147bc-0 jYdwkH">푸드백과↗</span></button></a>
-                </div>
-                <div class="sc-70234ffb-0 faWboY"><a rel="noreferrer" href="/"><button name=""
+                <div class="sc-70234ffb-0 faWboY"><a target="_blank" rel="noreferrer" href="/blog"><button name="푸드백과↗"
                             text="[object Object]" background="[object Object]" brandcolor="#002555"
-                            id="4e0e12dc-9cd3-4e86-8998-9185a8b0ec31" link="[object Object]" shape="square"
-                            radius="[object Object]"
+                            id="1925bebf-4238-447c-8c6b-021a14d39c26" link="[object Object]" submenus="" shape="square"
+                            radius="[object Object]" class="sc-cc615447-0 cKCfzK"><span
+                                class="sc-86b147bc-0 jYdwkH">푸드백과↗</span></button></a>
+                </div>
+                <div class="sc-70234ffb-0 faWboY"><a role="button" rel="noreferrer"
+                        href="{% provider_login_url 'google' %}"><button name="" text="[object Object]"
+                            background="[object Object]" brandcolor="#002555" id="4e0e12dc-9cd3-4e86-8998-9185a8b0ec31"
+                            link="[object Object]" shape="square" radius="[object Object]"
                             submenus="[object Object],[object Object],[object Object],[object Object]"
                             class="sc-cc615447-0 cKCfzK"><span class="sc-86b147bc-0 jYdwkH">Log In</span></button></a>
                 </div>

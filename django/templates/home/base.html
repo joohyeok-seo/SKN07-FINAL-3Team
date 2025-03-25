@@ -4,7 +4,7 @@
 {% load static %}
 
 <head>
-    <title>{% block head_title %}Blog{% endblock %}</title>
+    <title>{% block head_title %}Food{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'home/bootstrap/bootstrap.min.css' %}" media="screen">
 
     <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
@@ -24,9 +24,8 @@
     <div class="container my-3">
         <div class="row">
             <div class="col-md-8 col-lg-9" id="main-area">
-                {% for i in '012345679895255' %}
-                <h2 class="text-dark">{{i}}: Blog - Recent posts</h2>
-                {% endfor %}
+                {% block main_area %}
+                {% endblock %}
             </div>
 
             <div class="col-md-4 col-lg-3">
