@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %}My Site{% endblock %}</title>
+
+    <!-- 기본 스타일 -->
+    <link rel="stylesheet" href="{% static 'home/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/footer.css' %}">
+    <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
+
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    {% block main_area %}{% endblock %}
+
+    {% include "footer.html" %}
+
+    <!-- ✅ 외부 static JS 파일 연결 -->
+    <script src="{% static 'js/nav.js' %}"></script>
+
+    {% block body_extra %}{% endblock %}
+</body>
+</html>
