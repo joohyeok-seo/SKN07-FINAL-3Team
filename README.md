@@ -81,3 +81,7 @@ My contributions included:
 - Final tech presentation and documentation
 
 ---
+
+For the Korean version of this documentation, please refer to [README_ko.md](README_ko.md).
+
+---
